@@ -1,0 +1,83 @@
+<?php
+ 
+namespace App;
+
+use mysqli;
+
+ class User{
+    private $fullname;
+    private $username;
+    private $password;
+    private $email;
+    private $phone;
+    
+
+    public function __construct($fullname,$username,$password,$email,$phone)
+    {
+        $this->fullname=$fullname;
+        $this->username=$username;
+        $this->password=$password;
+        $this->email=$email;
+        $this->phone=$phone;
+        
+    }
+    public function getFullName(){
+        return $this->fullname;
+    }
+    public function getUserName(){
+        return $this->username;
+    }
+    public function getPassword(){
+        return $this->password;
+    }
+    public function getEmail(){
+        return $this->email;
+    }
+    public function getPhone(){
+        return $this->phone;
+    }
+  
+  
+    public function setFullName($fullname){
+        $this->fullname=$fullname;
+    }
+    public function setUserName($username){
+        $this->fullname=$username;
+    }
+    public function setPassword($password){
+        $this->password=$password;
+    }
+    public function setEmail($email){
+        $this->email=$email;
+    }
+    public function setPhone($phone){
+        $this->email=$phone;
+    }
+    
+
+   public function Create($fullname,$username,$password,$email,$phone){
+    // $connection=new mysqli("localhost","root","","bibliotheque");
+    if(Connection::$connection->connect_error){
+        echo'conndection error';
+    }
+    else{
+        $fullname=htmlspecialchars($fullname);
+        $fullname=htmlspecialchars($username);
+        $fullname=htmlspecialchars($password);
+        $fullname=htmlspecialchars($email);
+        $fullname=htmlspecialchars($phone);
+        $stmt=Connection::$connection->prepare("INSERT INTO users('fullname','username','password','email','phone') VALUES(?,?,?,?);");
+        $stmt->bind_param('sssss',$this->fullname,$this->username,$this->password,$this->email,$this->phone);
+        $stmt->execute();
+    }
+   }
+
+   public function getUserByUsername(){
+    
+    $stmt=Connection::$connection->prepare("SELECT * FROM users where username=?;");
+    $stmt->bind_param('s',$this->username);
+    $stmt->execute();
+
+   }
+
+ }
