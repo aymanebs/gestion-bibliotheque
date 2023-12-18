@@ -1,6 +1,6 @@
 <?php
  
-namespace App;
+namespace App\models;
 
 use mysqli;
 
@@ -42,7 +42,7 @@ use mysqli;
         $this->fullname=$fullname;
     }
     public function setUserName($username){
-        $this->fullname=$username;
+        $this->username=$username;
     }
     public function setPassword($password){
         $this->password=$password;
@@ -51,30 +51,35 @@ use mysqli;
         $this->email=$email;
     }
     public function setPhone($phone){
-        $this->email=$phone;
+        $this->phone=$phone;
     }
     
 
    public function Create($fullname,$username,$password,$email,$phone){
-    // $connection=new mysqli("localhost","root","","bibliotheque");
-    if(Connection::$connection->connect_error){
+    $connection=new mysqli("localhost","root","","bibliotheque");
+    if($connection->connect_error){
         echo'conndection error';
     }
     else{
         $fullname=htmlspecialchars($fullname);
-        $fullname=htmlspecialchars($username);
-        $fullname=htmlspecialchars($password);
-        $fullname=htmlspecialchars($email);
-        $fullname=htmlspecialchars($phone);
-        $stmt=Connection::$connection->prepare("INSERT INTO users('fullname','username','password','email','phone') VALUES(?,?,?,?);");
-        $stmt->bind_param('sssss',$this->fullname,$this->username,$this->password,$this->email,$this->phone);
-        $stmt->execute();
+        $username=htmlspecialchars($username);
+        $password=password_hash($password,PASSWORD_DEFAULT);
+        $email=htmlspecialchars($email);
+        $phone=htmlspecialchars($phone);
+        $stmt=$connection->prepare("INSERT INTO users(fullname,username,password,email,phone) VALUES(?,?,?,?,?)");
+        $stmt->bind_param('sssss',$fullname,$username,$password,$email,$phone);
+        if($stmt->execute()){
+            echo"user inserted";
+        }
+        else {
+            echo 'Error creating user: ' . $stmt->error;
+        }
     }
    }
 
    public function getUserByUsername(){
-    
-    $stmt=Connection::$connection->prepare("SELECT * FROM users where username=?;");
+    $connection=new mysqli("localhost","root","","bibliotheque");
+    $stmt=$connection->prepare("SELECT * FROM users where username=?;");
     $stmt->bind_param('s',$this->username);
     $stmt->execute();
 

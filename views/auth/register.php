@@ -23,46 +23,46 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="form3Example1c" class="form-control" />
-                      <label class="form-label" name="fullname" for="form3Example1c">Your Name</label>
+                      <input type="text"name="fullname" id="form3Example1c" class="form-control" />
+                      <label class="form-label"  for="form3Example1c">Your Name</label>
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="form3Example1c" class="form-control" />
-                      <label class="form-label" name="username" for="form3Example1c">User Name</label>
+                      <input type="text" name="username" id="form3Example1c" class="form-control" />
+                      <label class="form-label"  for="form3Example1c">User Name</label>
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="form3Example1c" class="form-control" />
-                      <label class="form-label"name="phone" for="form3Example1c">Phone number</label>
+                      <input type="text" name="phone" id="form3Example1c" class="form-control" />
+                      <label class="form-label" for="form3Example1c">Phone number</label>
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="email" id="form3Example3c" class="form-control" />
-                      <label class="form-label"name="email" for="form3Example3c">Your Email</label>
+                      <input type="email"  name="email" id="form3Example3c" class="form-control" />
+                      <label class="form-label" for="form3Example3c">Your Email</label>
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4c" class="form-control" />
-                      <label class="form-label" name="password" for="form3Example4c">Password</label>
+                      <input type="password" name="password" id="form3Example4c" class="form-control" />
+                      <label class="form-label"  for="form3Example4c">Password</label>
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4cd" class="form-control" />
-                      <label class="form-label" name="confirm_password" for="form3Example4cd">Repeat your password</label>
+                      <input type="password" name="confirm_password" id="form3Example4cd" class="form-control" />
+                      <label class="form-label"  for="form3Example4cd">Repeat your password</label>
                     </div>
                   </div>
 <!-- 
