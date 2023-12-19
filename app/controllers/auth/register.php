@@ -9,6 +9,6 @@ if($_SERVER["REQUEST_METHOD"]==='POST'){
     $confirm_password=$_POST['confirm_password'];
     $email=$_POST['email'];
     $phone=$_POST['phone'];
-    $authentification=new AuthControl;
+    $authentification=new AuthControl();
     $authentification->register($fullname,$username,$password,$confirm_password,$email,$phone);
 }

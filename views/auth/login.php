@@ -34,7 +34,7 @@
       <div class="row align-items-center">
             <div class="header-text mb-4"></div>
     <!-- form-start         -->
-            <form action="#" method="POST">
+            <form action="/app/controllers/auth/login.php" method="POST">
 
             <div class="input-group mb-3">
                 <input type="text" name="username" class="form-control form-control-lg bg-light fs-6" placeholder="Login">

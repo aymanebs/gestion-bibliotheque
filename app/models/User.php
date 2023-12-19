@@ -68,8 +68,16 @@ use mysqli;
         $phone=htmlspecialchars($phone);
         $stmt=$connection->prepare("INSERT INTO users(fullname,username,password,email,phone) VALUES(?,?,?,?,?)");
         $stmt->bind_param('sssss',$fullname,$username,$password,$email,$phone);
+        // $result=LAST_INSERT_ID();
+        
         if($stmt->execute()){
-            echo"user inserted";
+        $user_id=$stmt-> insert_id; 
+        $role_id=2;  
+        $stmt=$connection->prepare("INSERT INTO user_role(user_id,role_id) VALUES(?,?)");
+        $stmt->bind_param('dd',$user_id,$role_id);
+        if($stmt->execute()){
+            echo"user inserted succesfuly";
+        }
         }
         else {
             echo 'Error creating user: ' . $stmt->error;
@@ -82,7 +90,25 @@ use mysqli;
     $stmt=$connection->prepare("SELECT * FROM users where username=?;");
     $stmt->bind_param('s',$this->username);
     $stmt->execute();
-
+    $result=$stmt->get_result();
+    $row=$result->fetch_assoc();
+    return $row;
    }
+
+   public function getUserRoleId(){
+    $connection=new mysqli("localhost","root","","bibliotheque");
+    $stmt=$connection->prepare("SELECT users.id AS userId,users.username AS username,user_role.user_id ,user_role.role_id AS roleId FROM users JOIN user_role ON users.id=user_role.user_id WHERE username=?");
+    $stmt->bind_param('s',$this->username);
+    $stmt->execute();
+    $result=$stmt->get_result();
+    $row=$result->fetch_assoc();
+    return $row;
+   } 
+
+
+
+
+
+   
 
  }

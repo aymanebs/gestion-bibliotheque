@@ -10,7 +10,10 @@ namespace App\config;
         }
     }
     public  function setSessionData($key,$value){
-        $_SESSION[$key]=$value;
+         $_SESSION[$key]=$value;
+    }
+    public function display(){
+        echo $_SESSION;
     }
     public  function endSession(){
         $result=session_destroy();
