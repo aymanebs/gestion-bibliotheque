@@ -5,6 +5,7 @@ namespace App\models;
 use mysqli;
 
  class User{
+    private $id;
     private $fullname;
     private $username;
     private $password;
@@ -12,8 +13,9 @@ use mysqli;
     private $phone;
     
 
-    public function __construct($fullname,$username,$password,$email,$phone)
-    {
+    public function __construct($id,$fullname,$username,$password,$email,$phone)
+    {   
+        $this->id=$id;
         $this->fullname=$fullname;
         $this->username=$username;
         $this->password=$password;
@@ -21,6 +23,8 @@ use mysqli;
         $this->phone=$phone;
         
     }
+
+
     public function getFullName(){
         return $this->fullname;
     }
@@ -105,10 +109,36 @@ use mysqli;
     return $row;
    } 
 
+   public function display(){
+    $connection=new mysqli("localhost","root","","bibliotheque");
+    $stmt=$connection->prepare("SELECT * FROM users");
+    $stmt->execute();
+    $result=$stmt->get_result();
+    if($result){
+        $users=[];
+        while($row=$result->fetch_assoc()){
+            $users[]=$row;
+        }
+        return $users;
+    }
+    else{
+        error_log("querry failed: " . $stmt->error);
+        return [];
+    }  
+   }
+
+   public function displayById($id){
+    $connection=new mysqli("localhost","root","","bibliotheque");
+    $stmt=$connection->prepare("SELECT * FROM users WHERE id=?");
+    $stmt->bind_param('d',$id);
+    $stmt->execute();
+    $result=$stmt->get_result();
+    $row=$result->fetch_assoc();
+    return $row;
+
+   }
 
 
 
-
-   
 
  }

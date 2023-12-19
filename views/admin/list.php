@@ -3,7 +3,7 @@
 ?>
    <div class="container-fluid">
      <div class="row" >
-       <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse" >
+       <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse pt-5" >
          <div class="position-sticky pt-md-5">
            <ul class="nav flex-column" >
              <li class="nav-item" >
@@ -88,21 +88,19 @@
                      <thead>
                        <tr>
                          <th scope="col">id</th>
+                         <th scope="col">Fullname</th>
                          <th scope="col">Username</th>
-                         <th scope="col">Name</th>
                          <th scope="col">Email</th>
                          <th scope="col">Phone</th>
-                         <th scope="col">Adress</th>
-                         <th scope="col">Created_at</th>
                          <th scope="col">Action</th>
-
                        </tr>
                      </thead>
                      <tbody>
-
-
-
-
+                        <?php 
+                            
+                            require __DIR__ ."/../../app/controllers/admin/list.php";
+                        
+                        ?>
                      </tbody>
                    </table>
                  </div>

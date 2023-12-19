@@ -7,7 +7,7 @@ use App\config\SessionManager;
 class AuthControl{
 
 public function register($fullname,$username,$password,$confirm_password,$email,$phone){
-    $user=new User($fullname,$username,$password,$email,$phone);
+    $user=new User("",$fullname,$username,$password,$email,$phone);
     $error="";
     if(empty($fullname) ||empty($username) || empty($password) ||empty($confirm_password) || empty($email) || empty($phone)){
             $error="All fields should be inserted";
@@ -40,7 +40,7 @@ public function register($fullname,$username,$password,$confirm_password,$email,
 public function login($username,$password){
 $username=htmlspecialchars($username);
 $password=htmlspecialchars($password);
-$user=new user('',$username,$password,'','');
+$user=new user('','',$username,$password,'','');
 $row=$user->getUserByUsername();
 
 if(!$row){
