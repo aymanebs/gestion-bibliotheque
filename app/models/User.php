@@ -135,10 +135,14 @@ use mysqli;
     $result=$stmt->get_result();
     $row=$result->fetch_assoc();
     return $row;
-
    }
-
-
-
-
+   public function update($id){
+    $connection=new mysqli("localhost","root","","bibliotheque");
+    $stmt=$connection->prepare(" UPDATE users SET fullname=?,username=?,email=?,phone=? WHERE id=?");
+    $stmt->bind_param("ssssd",$this->fullname,$this->username,$this->email,$this->phone,$id);
+    if(!($stmt->execute())){
+        die("Query failed: ". $stmt->error);
+    }
+    return true;
+}
  }

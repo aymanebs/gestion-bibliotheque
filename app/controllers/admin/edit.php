@@ -1,17 +1,29 @@
 <?php
-    require "../../vendor/autoload.php";
+     require  __DIR__ . '/../../../vendor/autoload.php';
     use App\models\User;
 
     if(isset($_GET['id'])){
         $user=new User('','','','','','');
         $id=$_GET['id'];
         $row=$user->displayById($id);
-        if($row){
-            echo $row['fullname'];
+    }
+    if($_SERVER['REQUEST_METHOD'] === "POST"){
+        $id=$_POST['id'];
+        $fullname=$_POST['fullname'];
+        $username=$_POST['username'];
+        $email=$_POST['email'];
+        $phone=$_POST['phone'];
+        $user=new User($id,$fullname,$username,'',$email,$phone);
+        $result=$user->update($id);
+        if($result){
+            header('Location:/../../views/admin/list.php');
+            exit();
+        }
+        else{
+            header('Location:/../../index.php');
+            exit();
         }
         
-        
-
 
     }
 
