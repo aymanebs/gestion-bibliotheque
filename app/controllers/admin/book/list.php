@@ -5,20 +5,20 @@ use App\models\Book;
 require '../../../vendor/autoload.php';
 
     $book=new Book('','','','','','','','');
-    $users=$book->display();
-    foreach($users as $user){ ?>
+    $books=$book->display();
+    foreach($books as $book){ ?>
         <tr>
-            <td><?php echo $user['id']?></td>
-            <td><?php echo $user['title']?></td>
-            <td><?php echo $user['author']?></td>
-            <td><?php echo $user['genre']?></td>
-            <td><?php echo $user['description']?></td>
-            <td><?php echo $user['publication_year']?></td>
-            <td><?php echo $user['total_copies']?></td>
-            <td><?php echo $user['avaible_copies']?></td>
+            <td><?php echo $book['id']?></td>
+            <td><?php echo $book['title']?></td>
+            <td><?php echo $book['author']?></td>
+            <td><?php echo $book['genre']?></td>
+            <td><?php echo $book['description']?></td>
+            <td><?php echo $book['publication_year']?></td>
+            <td><?php echo $book['total_copies']?></td>
+            <td><?php echo $book['avaible_copies']?></td>
             <td>
-            <a href='edit.php'?id=<?php echo $user['id']?>><i class='fas fa-edit btndit' style='cursor: pointer;'></i></a>
-            <a href='delete.php'?id=<?php echo $user['id']?>><i class='fas fa-trash-alt btndelete' style='cursor: pointer; padding-left: 20px;'></i></a>
+            <a href='/./views/admin/book/edit.php?id=<?php echo $book['id']?>'><i class='fas fa-edit btndit' style='cursor: pointer;'></i></a>
+            <a href='/./app/controllers/admin/book/delete.php?id=<?php echo $book['id']?>'><i class='fas fa-trash-alt btndelete' style='cursor: pointer; padding-left: 20px;'></i></a>
             </td>
         </tr>
  <?php   }

@@ -42,7 +42,7 @@
                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                  </svg>
-                 <span class="ml-2">Customers</span>
+                 <span class="ml-2">Books</span>
                </a>
              </li>
              <li class="nav-item">
@@ -93,7 +93,7 @@
                          <th scope="col">author</th>
                          <th scope="col">genre</th>
                          <th scope="col">description</th>
-                         <th scope="col">publication_year</th>
+                         <th scope="col">year</th>
                          <th scope="col">total_copies</th>
                          <th scope="col">avaible_copies</th>
                          <th scope="col">Action</th>
@@ -119,10 +119,4 @@
    <?php 
     require_once '../../../layout/footer.php';
 ?>
-    private $title;
-    private $author;
-    private $genre;
-    private $description;
-    private $publication_year;
-    private $total_copies;
-    private $avaible_copies;
+   
