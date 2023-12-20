@@ -144,5 +144,12 @@ use mysqli;
         die("Query failed: ". $stmt->error);
     }
     return true;
-}
+    }
+
+    public function delete($id){
+        $connection=new mysqli("localhost","root","","bibliotheque");
+        $stmt=$connection->prepare("DELETE FROM users WHERE id=?");
+        $stmt->bind_param("d",$id);
+        $stmt->execute();
+    }
  }
