@@ -72,8 +72,6 @@ use mysqli;
         $phone=htmlspecialchars($phone);
         $stmt=$connection->prepare("INSERT INTO users(fullname,username,password,email,phone) VALUES(?,?,?,?,?)");
         $stmt->bind_param('sssss',$fullname,$username,$password,$email,$phone);
-        // $result=LAST_INSERT_ID();
-        
         if($stmt->execute()){
         $user_id=$stmt-> insert_id; 
         $role_id=2;  
