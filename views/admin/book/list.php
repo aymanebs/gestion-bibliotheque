@@ -75,13 +75,13 @@
            </ol>
          </nav>
          
-         <h1 class="h2">Customers</h1>
+         <h1 class="h2">Books</h1>
          <a class="btn btn-secondary" href="./create.php" role="button" style="position: relative;left:90%">ADD</a>
-         <p>This is the customers table list</p>
+         <p>This is the books table list</p>
          <div class="row">
            <div class="col-12 col-xl-12 mb-4 mb-lg-0">
              <div class="card">
-               <h5 class="card-header">Customers</h5>
+               <h5 class="card-header">Books list</h5>
                
                <div class="card-body">
                  <div class="table-responsive">

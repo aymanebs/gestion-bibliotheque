@@ -1,6 +1,9 @@
+
+
+
 <?php 
     require_once '../../../layout/header.php';
-?>
+?>   
    <div class="container-fluid">
      <div class="row" >
        <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse pt-5" >
@@ -42,7 +45,7 @@
                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                  </svg>
-                 <span class="ml-2">Customers</span>
+                 <span class="ml-2">Books</span>
                </a>
              </li>
              <li class="nav-item">
@@ -73,19 +76,18 @@
            <ol class="breadcrumb">
              <li class="breadcrumb-item"><a href="#">Home</a></li>
            </ol>
-         </nav>
-         
-         <h1 class="h2">Customers</h1>
-         <!-- <a class="btn btn-secondary" href="./add.php" role="button" style="position: relative;left:90%">ADD</a> -->
-         <p>This is the customers table list</p>
+         </nav>     
+          <h1 class="h2" >Customers</h1> 
+         <a class="btn btn-secondary" href="./add.php" role="button" style="position: relative;left:90%">ADD</a>
+          <p>This is the customers table list</p>
          <div class="row">
            <div class="col-12 col-xl-12 mb-4 mb-lg-0">
              <div class="card">
-               <h5 class="card-header">Customers</h5>
+               <h5 class="card-header" >Customers</h5>
                
                <div class="card-body">
                  <div class="table-responsive">
-                   <table class="table">
+                   <table class="table" id="mytable">
                      <thead>
                        <tr>
                          <th scope="col">id</th>
@@ -105,7 +107,7 @@
                      </tbody>
                    </table>
                  </div>
-                 <a href="#" class="btn btn-block btn-light">View all</a>
+                
                </div>
              </div>
            </div>
@@ -114,5 +116,5 @@
      </div>
    </div>
    <?php 
-    require_once '../../../layout/footer.php';
+       require_once '../../../layout/footer.php';
 ?>

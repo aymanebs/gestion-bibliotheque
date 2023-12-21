@@ -4,7 +4,7 @@ use App\models\Book;
 
 require '../../../vendor/autoload.php';
 
-    $book=new Book('','','','','','','','');
+    $book=new Book('','','','','','','','','','');
     $books=$book->display();
     foreach($books as $book){ ?>
         <tr>

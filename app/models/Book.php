@@ -11,8 +11,11 @@ class Book{
     private $publication_year;
     private $total_copies;
     private $avaible_copies;
+    private $image_name;
+    private $image_path;
+
     
-    public function __construct($id,$title,$author,$genre,$description,$publication_year,$total_copies,$avaible_copies){
+    public function __construct($id,$title,$author,$genre,$description,$publication_year,$total_copies,$avaible_copies,$image_name,$image_path){
         $this->id=$id;
         $this->title=$title;
         $this->author=$author;
@@ -21,16 +24,18 @@ class Book{
         $this->publication_year=$publication_year;
         $this->total_copies=$total_copies;
         $this->avaible_copies=$avaible_copies;
+        $this->image_name=$image_name;
+        $this->image_path=$image_path;
     }
 
-    public function Create($title,$author,$genre,$description,$publication_year,$total_copies,$avaible_copies){
+    public function Create($title,$author,$genre,$description,$publication_year,$total_copies,$avaible_copies,$image_name,$image_path){
         $connection=new mysqli("localhost","root","","bibliotheque");
         if($connection->connect_error){
             echo'conndection error';
         }
         else{
-            $stmt=$connection->prepare("INSERT INTO book(title,author,genre,description,publication_year,total_copies,avaible_copies) VALUES(?,?,?,?,?,?,?)");
-            $stmt->bind_param('sssssdd',$title,$author,$genre,$description,$publication_year,$total_copies,$avaible_copies);
+            $stmt=$connection->prepare("INSERT INTO book(title,author,genre,description,publication_year,total_copies,avaible_copies,image_name,image_path) VALUES(?,?,?,?,?,?,?,?,?)");
+            $stmt->bind_param('sssssddss',$title,$author,$genre,$description,$publication_year,$total_copies,$avaible_copies,$image_name,$image_path);
             if(!$stmt->execute()){
                 error_log("query failed: ". $stmt->error);
             }
@@ -89,8 +94,8 @@ class Book{
     if($connection->connect_error){
         error_log("Failed to connect: " . $connection->connect_error);
     }
-    $stmt=$connection->prepare('UPDATE book SET title=?,author=?,genre=?,description=?,publication_year=?,total_copies=?,avaible_copies=? WHERE id=?');
-    $stmt->bind_param('sssssddd',$this->title,$this->author,$this->genre,$this->description,$this->publication_year,$this->total_copies,$this->avaible_copies,$id);
+    $stmt=$connection->prepare('UPDATE book SET title=?,author=?,genre=?,description=?,publication_year=?,total_copies=?,avaible_copies=?,image_name=?,image_path=? WHERE id=?');
+    $stmt->bind_param('sssssddssd',$this->title,$this->author,$this->genre,$this->description,$this->publication_year,$this->total_copies,$this->avaible_copies,$this->image_name,$this->image_path,$id);
     
     if(!$stmt->execute()){
         error_log("Querry fail: " . $stmt->error);

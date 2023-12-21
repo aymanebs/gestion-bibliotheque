@@ -21,8 +21,8 @@
        <button class="navbar-toggler d-md-none collapsed mb-3" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
          <span class="navbar-toggler-icon"></span>
        </button>
-     </div>
-     <form method="post">
+     </div>   
+     
      <form method="post" action="your_action_url.php" class="form-inline">
     <div class="input-group">
         <input class="form-control form-control-dark" type="text" name="search" placeholder="Search" aria-label="Search">
@@ -30,21 +30,9 @@
             <button class="btn btn-dark" type="submit" name="submit">Search</button>
         </div>
     </div>
-</form>
-     </form>
-     <div class="col-12 col-md-5 col-lg-8 d-flex align-items-center justify-content-md-end mt-3 mt-md-0">
-
-       <div class="dropdown">
-
-         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-           Menu
-         </button>
-         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-           <li><a class="dropdown-item" href="#">Settings</a></li>
-           <li><a class="dropdown-item" href="#">Messages</a></li>
-           <li><a class="dropdown-item" href="/controller/auth/logout.php">Sign out</a></li>
-         </ul>
-       </div>
-     </div>
+    </form>
+    <a class="btn btn-secondary" href="/controller/auth/logout.php" role="button" >Sign out</a>
+ 
    </nav>
    <!-- navbar end -->
+   
