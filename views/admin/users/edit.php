@@ -1,6 +1,6 @@
 <?php
-require_once "../../layout/header.php";
-require __DIR__ ."/../../app/controllers/admin/edit.php";
+require_once "../../../layout/header.php";
+require __DIR__ ."/../../../app/controllers/admin/users/edit.php";
 ?>
 
 <body>
@@ -13,30 +13,30 @@ require __DIR__ ."/../../app/controllers/admin/edit.php";
             <div class="row justify-content-center">
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Add</p>
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Update</p>
                
             
 <!-- form start -->
-                <form class="mx-1 mx-md-4" method="post" action="/app/controllers/admin/edit.php">
-                <input type="hidden"name="id" id="form3Example1c" class="form-control" value="" />
+                <form class="mx-1 mx-md-4" method="post" action="/app/controllers/admin/users/edit.php">
+                <input type="hidden"name="id" id="form3Example1c" class="form-control" value="<?php echo $row["id"] ?>" />
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text"name="fullname" id="form3Example1c" class="form-control" value="" />
+                      <input type="text"name="fullname" id="form3Example1c" class="form-control" value="<?php echo $row["fullname"] ?>" />
                       <label class="form-label"  for="form3Example1c">Your Name</label>
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text" name="username" id="form3Example1c" class="form-control" value="" />
+                      <input type="text" name="username" id="form3Example1c" class="form-control" value="<?php echo $row['username'] ?>" />
                       <label class="form-label"  for="form3Example1c">Username</label>
                     </div>
                   </div>
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="tel" name="phone" id="form3Example1c" class="form-control" value="" />
+                      <input type="tel" name="phone" id="form3Example1c" class="form-control" value="<?php echo $row['phone'] ?>" />
                       <label class="form-label" for="form3Example1c">Phone number</label>
                     </div>
                   </div>
@@ -44,7 +44,7 @@ require __DIR__ ."/../../app/controllers/admin/edit.php";
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
-                      <input type="text"  name="email" id="form3Example3c" class="form-control" value="" />
+                      <input type="text"  name="email" id="form3Example3c" class="form-control" value="<?php echo $row['email'] ?>" />
                       <label class="form-label" for="form3Example3c">Your Email</label>
                     </div>
                   </div>
@@ -72,5 +72,5 @@ require __DIR__ ."/../../app/controllers/admin/edit.php";
   </div>
 </section>
 <?php
-require_once "../../layout/footer.php"
+require_once "../../../layout/footer.php"
 ?>

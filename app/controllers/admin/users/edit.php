@@ -1,5 +1,5 @@
 <?php
-     require  __DIR__ . '/../../../vendor/autoload.php';
+     require  __DIR__ . '/../../../../vendor/autoload.php';
     use App\models\User;
 
     if(isset($_GET['id'])){
@@ -16,11 +16,11 @@
         $user=new User($id,$fullname,$username,'',$email,$phone);
         $result=$user->update($id);
         if($result){
-            header('Location:/../../views/admin/list.php');
+            header('location:/../../../views/admin/users/list.php');
             exit();
         }
         else{
-            header('Location:/../../index.php');
+            header('location:/../../../views/admin/users/edit.php');
             exit();
         }
         
