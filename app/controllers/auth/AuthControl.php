@@ -44,22 +44,27 @@ $user=new user('','',$username,$password,'','');
 $row=$user->getUserByUsername();
 
 if(!$row){
-    die("invalid input");  
+    header('Location:/../../views/auth/login.php');   
 }
 else{
     if(password_verify($password,$row['password'])){
-        $row=$user->getUserRoleId();
-        if($row['roleId']==2){
-            $role="utilisateur";      
-        }
-        else if($row['roleId']==1){
-            $role="Admin";  
-        }
         $session= new SessionManager();
         $session->startSession();
-        $session->setSessionData($role,$username); 
-        header('Location:/../../index.php');
-        exit();   
+        $row=$user->getUserRoleId();
+        if ($row['roleId'] == 1) {
+       
+            $session->setSessionData('user_id', $row['userId']);
+            header('Location: /../../views/admin/users/list.php');
+            exit();
+        } else if ($row['roleId'] == 2) {
+           
+         
+            $session->setSessionData('user_id', $row['userId']);
+            header('Location: /../../index.php');
+            exit();
+        } 
+        
+          
  
     
         

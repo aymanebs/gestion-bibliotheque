@@ -44,13 +44,13 @@ $session->startSession();
    ?>
    </div>
 
-   <div class="load-more" style="margin-top: 2rem; text-align:center">
+   <!-- <div class="load-more" style="margin-top: 2rem; text-align:center">
       <a href="shop.php" class="option-btn">load more</a>
-   </div>
+   </div> -->
 
 </section>
 
-<section class="about">
+<!-- <section class="about">
 
    <div class="flex">
 
@@ -76,7 +76,7 @@ $session->startSession();
       <a href="contact.php" class="white-btn">contact us</a>
    </div>
 
-</section>
+</section> -->
 
 <section class="footer">
 

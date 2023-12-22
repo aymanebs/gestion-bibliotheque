@@ -23,17 +23,18 @@ use mysqli;
         $this->book_id=$book_id;
     }
 
-    public function Create($description,$reservation_date,$return_date){
+    public function Create($description,$reservation_date,$return_date,$user_id,$book_id){
         $connection=new mysqli("localhost","root","","bibliotheque");
         if($connection->connect_error){
             echo'conndection error';
         }
         else{
-            $stmt=$connection->prepare("INSERT INTO reservation(description,reservation_date,return_date) VALUES(?,?,?)");
-            $stmt->bind_param('sss',$description,$reservation_date,$return_date);
+            $stmt=$connection->prepare("INSERT INTO reservation(description,reservation_date,return_date,user_id,book_id) VALUES(?,?,?,?,?)");
+            $stmt->bind_param('sssii',$description,$reservation_date,$return_date,$user_id,$book_id);
             if(!$stmt->execute()){
                 error_log("query failed: ". $stmt->error);
             }
+            
         }
 
     }

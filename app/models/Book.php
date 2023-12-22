@@ -118,6 +118,11 @@ class Book{
         }
         return true;
     }
-   
+   public function subtract($id){
+    $connection=new mysqli('localhost','root','','bibliotheque');
+    $stmt=$connection->prepare("UPDATE book SET avaible_copies = avaible_copies - 1 WHERE id = ?");
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+   }
     
 }

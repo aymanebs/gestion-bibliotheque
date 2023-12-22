@@ -1,18 +1,23 @@
 <?php
 
+use App\config\SessionManager;
+
 use App\models\Reservation;
 
 require __DIR__ .'/../../../../vendor/autoload.php';
-   
+$session=new SessionManager();
+
     if(isset($_POST['submit'])){
-    
+       
         $return_date=$_POST['return_date'];
         $reservation_date=$_POST['reservation_date'];
-        $description=$_POST['description'];
-        $reservation=new Reservation('',$description,$reservation_date,$return_date,'','','');
-        $reservation->Create($description,$reservation_date,$return_date);
-        header('Location:/../../../index.php');
-        exit();
+        $user_id=$_POST['user_id'];
+        $book_id=$_POST['book_id'];
 
+    $reservation=new Reservation('','',$reservation_date,$return_date,'',$user_id,$book_id);
+    $reservation->Create('',$reservation_date,$return_date,$user_id,$book_id);
+    
+    header('Location:/../../../index.php');
+    
+    exit();
     }
-   
