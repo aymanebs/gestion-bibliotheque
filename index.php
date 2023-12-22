@@ -37,7 +37,16 @@ $session->startSession();
 <section class="products">
 
    <h1 class="title">latest products</h1>
-
+   
+   <form action="" method="get">
+    <div style="color: #333;">
+        <label>Select Search Option</label>
+        <select  name="" style="color: #555; background-color: #f8f9fa; border: 1px solid #ccc;" >
+            <option value="title">Title</option>
+            <option value="author">Author</option>
+        </select>
+    </div>
+</form>
    <div class="box-container">
 <?php
    require __DIR__ ."/app/controllers/utilisateur/book/list.php";
