@@ -150,4 +150,22 @@ use mysqli;
         $stmt->bind_param("d",$id);
         $stmt->execute();
     }
+
+    public function stats(){
+        $connection = new mysqli('localhost', 'root', '', 'bibliotheque');
+        $stmt = $connection->prepare('SELECT users.id, users.fullname AS name, COUNT(reservation.user_id) AS reservation_count FROM users JOIN reservation ON users.id = reservation.user_id GROUP BY users.id, name ORDER BY reservation_count DESC LIMIT 3');
+        $stmt->execute();
+        $result=$stmt->get_result();
+        if(!$result){
+            error_log("Querry fail: " . $stmt->error);
+        }
+        $count = [];
+        while($row=$result->fetch_assoc() ){
+            $count[]=$row;
+        }
+        return $count;
+      }
+
+
+
  }

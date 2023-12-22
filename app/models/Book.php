@@ -118,11 +118,43 @@ class Book{
         }
         return true;
     }
+
    public function subtract($id){
     $connection=new mysqli('localhost','root','','bibliotheque');
     $stmt=$connection->prepare("UPDATE book SET avaible_copies = avaible_copies - 1 WHERE id = ?");
     $stmt->bind_param("i", $id);
     $stmt->execute();
    }
+
+   public function stats(){
+    $connection = new mysqli('localhost', 'root', '', 'bibliotheque');
+    $stmt = $connection->prepare('SELECT book.id, book.title AS title, COUNT(reservation.book_id) AS reservation_count FROM book JOIN reservation ON book.id = reservation.book_id GROUP BY book.id, book.title ORDER BY reservation_count DESC LIMIT 3');
+    $stmt->execute();
+    $result=$stmt->get_result();
+    if(!$result){
+        error_log("Querry fail: " . $stmt->error);
+    }
+    $count = [];
+    while($row=$result->fetch_assoc() ){
+        $count[]=$row;
+    }
+    return $count;
+  }
+
+  public function avaibleCount(){
+    $connection = new mysqli('localhost', 'root', '', 'bibliotheque');
+    $stmt = $connection->prepare("SELECT SUM(avaible_copies) AS total FROM book ");
+    $stmt->execute();
+    $result = $stmt->get_result();
+     if(!$result){
+        error_log("Query failed: " . $stmt->error);
+    }
+    $count = $result->fetch_assoc();
+    $total = $count['total'];
+
+    return $total;
+}
+
+   
     
 }
