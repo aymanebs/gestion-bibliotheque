@@ -27,7 +27,9 @@ use App\models\Book;
    <!-- insert stylesheets here -->
  </head>
  <body>
-
+ <?php 
+    require_once '../../layout/header.php';
+?>  
 <section class="vh-100" style="background-color: #103cbe;">
   <div class="container h-100 w-60 pt-5">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -65,7 +67,7 @@ use App\models\Book;
                 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                   
-                    <button type="submit" name="submit" class="btn btn-primary btn-lg m-3">Register</button>
+                    <button type="submit" name="submit" class="btn btn-primary btn-lg m-3">Submit</button>
                   </div>
 
                 </form>

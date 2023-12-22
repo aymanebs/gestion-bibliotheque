@@ -73,7 +73,7 @@ require __DIR__ ."/../../../app/controllers/admin/book/create.php";
                   <input type="file"  name="image"   value="" />
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                   
-                    <button type="submit" name="submit" class="btn btn-primary btn-lg m-3">Register</button>
+                    <button type="submit" name="submit" class="btn btn-primary btn-lg m-3">Submit</button>
                   </div>
 
                 </form>

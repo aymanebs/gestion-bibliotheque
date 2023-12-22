@@ -18,7 +18,7 @@ require __DIR__ ."/../../../app/controllers/admin/book/edit.php";
                
             
 <!-- form start -->
-                <form class="mx-1 mx-md-4" method="post" action="/app/controllers/admin/book/edit.php" enctype="multipart/form-data">>
+                <form class="mx-1 mx-md-4" method="post" action="/app/controllers/admin/book/edit.php" enctype="multipart/form-data">
                 <input type="hidden"name="id" id="form3Example1c" class="form-control" value="<?php echo $row["id"] ?>" />
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
